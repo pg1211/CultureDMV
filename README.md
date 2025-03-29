@@ -35,7 +35,7 @@ Database, and Hosting(?): [Firebase](https://firebase.google.com/)
         back[Firebase/Firestore] --> front
         front[React/JS] --> app
         app[Hack4thon Proj!!!!]
-        users --data--> back
+        users --new events/locations--> back
 ```
 
 # Running Project Locally
