@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+
+import {AdvancedMarker, APIProvider, Map} from '@vis.gl/react-google-maps';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const position = {lat: 38.91115, lng: -77.02963};
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <APIProvider apiKey='AIzaSyCOow_U3fskeHmVl-nxfHl8lniBjOlOIXM'>
+      <Map defaultCenter={position} defaultZoom={10} mapId="DEMO_MAP_ID" style={{ width: '100%', height: '100%' }}>
+        <AdvancedMarker position={position} />
+      </Map>
+    </APIProvider>
+  );
 }
 
-export default App
+export default App;
+
+// function App() {
+//   const position = {lat: 38.91115, lng: -77.02963};
+
+//   return (
+//     <APIProvider apiKey={'AIzaSyCOow_U3fskeHmVl-nxfHl8lniBjOlOIXM'}>
+//       <Map defaultCenter={position} defaultZoom={13} mapId="dmv_map" style={{ width: '100%', height: '100vh' }}>
+//         <AdvancedMarker position={position} />
+//       </Map>
+//     </APIProvider>
+//   );
+// }
+
+// export default App;
+
