@@ -19,7 +19,7 @@ Welcome to Hack4thon-Proj! This project aims to create a platform through which 
 
 - Framework: React
 - Language: JavaScript
-- Styling: Modules
+- Styling: CSS Modules
 - Libraries: 
 
 **Backend:**
