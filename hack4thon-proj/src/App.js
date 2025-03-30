@@ -3,6 +3,8 @@ import React from 'react'
 import { AdvancedMarker, APIProvider, Map } from '@vis.gl/react-google-maps';
 import { TextField, Box, InputAdornment, styled } from '@mui/material';
 import { Search, Face as FaceIcon } from '@mui/icons-material';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import NewUser from './NewUser';
 
 
 const containerStyle = {
@@ -98,6 +100,56 @@ function App() {
       }
     },
   });
+
+  // return (
+  //   <BrowserRouter>
+  //     <Routes>
+  //       <Route path="/login" element={<NewUser />} />
+  //       <Route path="/*" element={<APIProvider apiKey={''}>
+  //                                   <Box sx={{ position: 'relative', height: '100vh', width: '100%' }}>
+  //                                     <Box sx={{
+  //                                       position: 'absolute',
+  //                                       top: '20px',
+  //                                       left: '50%',
+  //                                       transform: 'translateX(-50%)',
+  //                                       zIndex: 10,
+  //                                       display: 'flex',
+  //                                       alignItems: 'center',
+  //                                       display: 'flex',
+  //                                       justifyContent: 'center',
+  //                                       alignItems: 'center',
+  //                                       width: '100%'
+  //                                     }}>
+  //                                       <FaceIcon sx={{ marginRight: '20px', fontSize: '3.5rem', backgroundColor: 'white', borderRadius: '50px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', }} />
+  //                                       <StyledTextField
+  //                                         id="filled-basic"
+  //                                         label="Search for events, classes, cuisine..."
+  //                                         variant="filled"
+  //                                         sx={{
+  //                                           width: '80%',
+  //                                         }}
+  //                                         InputProps={{ // Corrected InputProps
+  //                                           endAdornment: (
+  //                                             <InputAdornment position="end">
+  //                                               <Search />
+  //                                             </InputAdornment>
+  //                                           ),
+  //                                         }}
+  //                                       />
+  //                                     </Box>
+  //                                     <Map defaultCenter={center} defaultZoom={13} mapId="dmv_map" style={{ width: '100%', height: '100vh' }}>
+  //                                     {locations.map((location, index) => (
+  //                                       <AdvancedMarker
+  //                                       key={index}
+  //                                       position={{ lat: location.lat, lng: location.lng }}
+  //                                       />
+  //                                     ))}
+  //                                   </Map>
+  //                                   </Box>
+  //                                 </APIProvider>} />
+  //     </Routes>
+  //   </BrowserRouter>
+  // );
 
   return (
     <APIProvider apiKey={process.env.REACT_APP_API_KEY}>

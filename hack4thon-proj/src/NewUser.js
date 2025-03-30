@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './newUser.css';
+import './NewUser.css';
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import { MenuItem } from '@mui/material';
