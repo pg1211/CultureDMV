@@ -51,12 +51,12 @@ For inquiries about the project, contact
 | Megan Yu | myu55@terpmail.umd.edu |
 | Prakhar Gupta | pg12@terpmail.umd.edu|
 | Annie Nguyen | annie251@terpmail.umd.edu |
+| Stephen Wu | swu12310@terpmail.umd.edu |
 
 ---
 Also semi contributing:
 * Aastha Gautam
 * Nitin Kanchinadam
-* Stephen Wu
 * Sophie Tsai
 
 
