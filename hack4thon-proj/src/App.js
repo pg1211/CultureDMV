@@ -31,7 +31,7 @@ function App() {
   });
 
   return (
-    <APIProvider apiKey='AIzaSyCDAK_4XqjDcRHxv1-HsUQ8whPlcJU7jOw'>
+    <APIProvider apiKey={process.env.APIKey}>
       <Box sx={{ position: 'relative', height: '100vh', width: '100%', display: 'flex', justifyContent: 'center' }}>
         <StyledTextField
           id="filled-basic"
