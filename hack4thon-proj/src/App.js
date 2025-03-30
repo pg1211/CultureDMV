@@ -1,7 +1,7 @@
 import './App.css';
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { AdvancedMarker, APIProvider, Map } from '@vis.gl/react-google-maps';
-import { TextField, Box, InputAdornment, styled } from '@mui/material';
+import { TextField, Box, InputAdornment, styled, Paper, List, ListItem, ListItemButton } from '@mui/material';
 import { Search, Face as FaceIcon } from '@mui/icons-material';
 
 
@@ -79,6 +79,45 @@ const tags = [
 
 function App() {
   const position = { lat: 38.91115, lng: -77.02963 };
+  const [searchValue, setSearchValue] = useState('');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const tags = [
+    "community",
+    "african american",
+    "chinese",
+    "ethiopian",
+    "restaurant",
+    "asian",
+    "indian",
+    "art",
+    "african",
+    "native american",
+    "international",
+  ]
+
+  const handleSearchClick = () => {
+    setDropdownOpen(!dropdownOpen);
+    console.log('Search icon clicked! dropdownOpen:', !dropdownOpen); // Add this line
+  };
+
+  const handleTagClick = (tag) => {
+    setSearchValue(tag);
+    setDropdownOpen(false);
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   const StyledTextField = styled(TextField)({
     '& .MuiFilledInput-root': {
@@ -93,8 +132,8 @@ function App() {
       '&:hover': {
         backgroundColor: 'white',
       },
-      '&.Mui-focused': { 
-        backgroundColor: 'white', 
+      '&.Mui-focused': {
+        backgroundColor: 'white',
       }
     },
   });
@@ -114,7 +153,7 @@ function App() {
           justifyContent: 'center',
           alignItems: 'center',
           width: '100%'
-        }}>
+        }} ref={dropdownRef}>
           <FaceIcon sx={{ marginRight: '20px', fontSize: '3.5rem', backgroundColor: 'white', borderRadius: '50px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', }} />
           <StyledTextField
             id="filled-basic"
@@ -126,20 +165,35 @@ function App() {
             InputProps={{ // Corrected InputProps
               endAdornment: (
                 <InputAdornment position="end">
-                  <Search />
+                  <Search onClick={handleSearchClick} />
                 </InputAdornment>
               ),
             }}
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
           />
+          {dropdownOpen && (
+            <Paper sx={{ position: 'absolute', top: '60px',  width: '85%', zIndex: 11, maxHeight: '200px', overflowY: 'auto' }}>
+              <List sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                {tags.map((tag) => (
+                  <ListItem key={tag} disablePadding>
+                    <ListItemButton onClick={() => handleTagClick(tag)}>
+                      {tag}
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </Paper>
+          )}
         </Box>
-        <Map defaultCenter={center} defaultZoom={13} mapId="dmv_map" style={{ width: '100%', height: '100vh' }}>
-        {locations.map((location, index) => (
-          <AdvancedMarker
-          key={index}
-          position={{ lat: location.lat, lng: location.lng }}
-          />
-        ))}
-      </Map>
+        <Map defaultCenter={center} defaultZoom={13} mapId="dmv_map" style={{ width: '100%', height: '100vh' }} mapTypeControl={false} streetViewControl={false}>
+          {locations.map((location, index) => (
+            <AdvancedMarker
+              key={index}
+              position={{ lat: location.lat, lng: location.lng }}
+            />
+          ))}
+        </Map>
       </Box>
     </APIProvider>
   );
