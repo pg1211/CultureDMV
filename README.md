@@ -38,12 +38,6 @@ Database, and Hosting(?): [Firebase](https://firebase.google.com/)
         u[/users/] --new events/locations--> back
 ```
 
-```python
-boing = boing
-
-print boing
-```
-
 # Running Project Locally
 
 run `npm start` from the hack4thon-proj directory!
