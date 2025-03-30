@@ -2,8 +2,8 @@ import './App.css';
 import React from 'react'
 import { AdvancedMarker, APIProvider, Map } from '@vis.gl/react-google-maps';
 import { TextField, Box, InputAdornment, styled } from '@mui/material';
-import { Search } from '@mui/icons-material';
-import FaceIcon from '@mui/icons-material/Face';
+import { Search, Face as FaceIcon } from '@mui/icons-material';
+
 
 const containerStyle = {
   width: '100%',
@@ -28,9 +28,12 @@ function App() {
       '&:before': { border: 'none' },
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
       outline: 'none',
-      '&:hover': { 
-      backgroundColor: 'white',
-    },
+      '&:hover': {
+        backgroundColor: 'white',
+      },
+      '&.Mui-focused': { 
+        backgroundColor: 'white', 
+      }
     },
   });
 
@@ -58,14 +61,12 @@ function App() {
             sx={{
               width: '80%',
             }}
-            InputProps={{
-              inputProps: {
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <Search />
-                  </InputAdornment>
-                ),
-              },
+            InputProps={{ // Corrected InputProps
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Search />
+                </InputAdornment>
+              ),
             }}
           />
         </Box>
