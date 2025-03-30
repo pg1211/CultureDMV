@@ -54,6 +54,28 @@ const locations = [
   { "lat": 38.8063, "lng": -77.0436, "name": "Carlyle House Historic Park", "tags": ["community", "history"] }
 ]
 
+const tags = [
+  "community",
+  "african american",
+  "chinese",
+  "ethiopian",
+  "restaurant",
+  "asian",
+  "indian",
+  "art",
+  "african",
+  "native american",
+  "international",
+  "mexican",
+  "music",
+  "maritime",
+  "theatre",
+  "live music",
+  "history",
+  "swedish",
+  "performing arts",
+  "waterfront"
+]
 
 function App() {
   const position = { lat: 38.91115, lng: -77.02963 };
