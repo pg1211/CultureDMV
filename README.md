@@ -1,4 +1,4 @@
-# Hack4thon Proj
+# CultureDMV
 
 
 ##  Table of Contents
@@ -11,7 +11,7 @@ ___
 
 
 # Project Info
-Welcome to Hack4thon-Proj! This project aims to create a platform through which members of the DMV community can find cultural spaces using Google Maps data/user moderated activity.
+Welcome to CultureDMV! This project aims to create a platform through which members of the DMV community can find cultural spaces using Google Maps data/user moderated activity.
 
 
 # Tech Stack
