@@ -17,7 +17,7 @@ function App() {
   const position = {lat: 38.91115, lng: -77.02963};
 
   return (
-    <APIProvider apiKey=''>
+    <APIProvider apiKey='AIzaSyCDAK_4XqjDcRHxv1-HsUQ8whPlcJU7jOw'>
       <Map defaultCenter={position} defaultZoom={13} mapId="dmv_map" style={{ width: '100%', height: '100vh' }}>
         <AdvancedMarker position={position} />
       </Map>
